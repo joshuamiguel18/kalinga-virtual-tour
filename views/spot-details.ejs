@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinglayan Rice Terraces | Kalinga 360</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pannellum CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" /> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <style>
+        :root {
+            --primary-color: #2a5c45;
+            --secondary-color: #d4af37;
+            --accent-color: #8b5a2b;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #f8f9fa;
+            --border-radius: 16px;
+            --box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: var(--dark-text);
+            background-color: white;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        /* Hero Section */
+        .destination-hero {
+            height: 70vh;
+            min-height: 600px;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Buttons */
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline-custom {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 240px;
+            grid-gap: 25px;
+            grid-auto-flow: dense;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+        
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+        
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        .gallery-caption h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .gallery-caption p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Modern Explore Sidebar */
+        .explore-sidebar {
+            position: relative;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-left: 30px;
+            height: fit-content;
+        }
+        
+        .explore-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .explore-sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .explore-sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .explore-sidebar-cards {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .explore-sidebar-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .explore-sidebar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .explore-sidebar-card a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .explore-sidebar-card-img {
+            height: 140px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .explore-sidebar-card-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+        }
+        
+        .explore-sidebar-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .explore-sidebar-card:hover .explore-sidebar-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .explore-sidebar-card-body {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .explore-sidebar-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .explore-sidebar-card-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .explore-sidebar-card-cta {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .explore-sidebar-card:hover .explore-sidebar-card-cta {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .explore-sidebar-card-cta i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .explore-sidebar-card:hover .explore-sidebar-card-cta i {
+            transform: translateX(3px);
+        }
+        
+        /* Modern Badge */
+        .explore-sidebar-card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        
+        /* Map Section */
+        .map-section {
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+        }
+        
+        #locationMap {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .map-info {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        .map-info p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        /* Explore More Section */
+        .explore-more {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        
+        .explore-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .explore-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .explore-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .explore-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .explore-card:hover .explore-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .explore-card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .explore-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .explore-card-text {
+            margin-bottom: 15px;
+            flex: 1;
+        }
+        
+        .explore-card-link {
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .explore-card-link:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: var(--transition);
+        }
+        
+        .back-button:hover {
+            color: var(--accent-color);
+            transform: translateX(-5px);
+        }
+        
+        /* 360 Modal */
+        .modal-360 .modal-dialog {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        .modal-360 .modal-content {
+            border: none;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+        }
+        
+        .modal-360 .modal-header {
+            border-bottom: 1px solid #eee;
+            padding: 15px 20px;
+        }
+        
+        .modal-360 .modal-header .btn-close {
+            margin: 0;
+        }
+        
+        .modal-360 .modal-body {
+            padding: 0;
+        }
+        
+        .panorama-container {
+            width: 100%;
+            height: 500px;
+        }
+        
+        #panorama-main,
+        #panorama-gallery1,
+        #panorama-gallery2,
+        #panorama-gallery3,
+        #panorama-gallery4,
+        #panorama-gallery5 {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        
+        .facebook { background-color: #3b5998; }
+        .twitter { background-color: #1da1f2; }
+        .instagram { background: linear-gradient(45deg, #405de6, #833ab4, #c13584, #e1306c); }
+        .whatsapp { background-color: #25d366; }
+        
+        /* 360 View Button */
+        .btn-360-small {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-360-small:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .explore-sidebar {
+                margin-left: 0;
+                margin-top: 40px;
+            }
+            
+            .explore-sidebar-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .destination-hero {
+                height: 60vh;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .panorama-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+            
+            .gallery-item.wide,
+            .gallery-item.tall,
+            .gallery-item.large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .modal-360 .modal-dialog {
+                max-width: 95%;
+                margin: 10px auto;
+            }
+            
+            .panorama-container {
+                height: 350px;
+            }
+            
+            .explore-sidebar-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .explore-sidebar-card-img {
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .destination-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .panorama-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <%- include('includes/header') %>
+    <!-- Destination Hero -->
+    <section class="destination-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><i class="fas fa-map-marker-alt"></i> Tinglayan Rice Terraces</h1>
+                <p>Discover the breathtaking beauty of Tinglayan's ancient rice terraces, carved into the mountains by generations of Kalinga farmers, showcasing remarkable engineering and cultural heritage.</p>
+                <div class="d-flex gap-3">
+                    <button class="btn-primary-custom" data-bs-toggle="modal" data-bs-target="#main360Modal">
+                        <i class="fas fa-vr-cardboard"></i> 360° Experience
+                    </button>
+                    <a href="#location-map" class="btn-outline-custom">
+                        <i class="fas fa-map-marked-alt"></i> View Map
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery of Tinglayan</h2>
+                <p class="text-muted">Explore the stunning landscapes through our curated collection</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="gallery-grid">
+                        <!-- Large Featured Image -->
+                        <div class="gallery-item large">
+                            <img src="https://images.unsplash.com/photo-1569319438169-01a462a5b6c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tinglayan Rice Terraces Panorama">
+                            <div class="gallery-caption">
+                                <h3><i class="fas fa-mountain"></i> Panoramic View</h3>
+                                <p>The expansive view of Tinglayan's rice terraces showcases the incredible engineering of the indigenous people.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn-360-small" data-bs-toggle="modal" data-bs-target="#gallery1Modal">
+                                        <i class="fas fa-vr-cardboard"></i> 360° View
+                                    </button>
+                                    <div class="share-buttons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/tinglayan" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/intent/tweet?url=https://example.com/tinglayan&text=Check%20out%20these%20amazing%20Tinglayan%20Rice%20Terraces" target="_blank" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://wa.me/?text=Check%20out%20these%20amazing%20Tinglayan%20Rice%20Terraces%20https://example.com/tinglayan" target="_blank" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tall Image -->
+                        <div class="gallery-item tall">
+                            <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Terraces at Sunrise">
+                            <div class="gallery-caption">
+                                <h3><i class="fas fa-sun"></i> Sunrise Over Terraces</h3>
+                                <p>Early morning light paints the terraces in golden hues, creating a magical landscape.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn-360-small" data-bs-toggle="modal" data-bs-target="#gallery2Modal">
+                                        <i class="fas fa-vr-cardboard"></i> 360° View
+                                    </button>
+                                    <div class="share-buttons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/tinglayan" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/intent/tweet?url=https://example.com/tinglayan&text=Beautiful%20sunrise%20at%20Tinglayan%20Rice%20Terraces" target="_blank" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://wa.me/?text=Beautiful%20sunrise%20at%20Tinglayan%20Rice%20Terraces%20https://example.com/tinglayan" target="_blank" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Wide Image -->
+                        <div class="gallery-item wide">
+                            <img src="https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Farmers Working">
+                            <div class="gallery-caption">
+                                <h3><i class="fas fa-user-tie"></i> Farmers at Work</h3>
+                                <p>Local farmers maintain the terraces using traditional methods passed down through generations.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn-360-small" data-bs-toggle="modal" data-bs-target="#gallery3Modal">
+                                        <i class="fas fa-vr-cardboard"></i> 360° View
+                                    </button>
+                                    <div class="share-buttons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/tinglayan" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/intent/tweet?url=https://example.com/tinglayan&text=Traditional%20farming%20at%20Tinglayan%20Rice%20Terraces" target="_blank" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://wa.me/?text=Traditional%20farming%20at%20Tinglayan%20Rice%20Terraces%20https://example.com/tinglayan" target="_blank" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Regular Image 1 -->
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Terraces Layers">
+                            <div class="gallery-caption">
+                                <h3><i class="fas fa-layer-group"></i> Terraced Layers</h3>
+                                <p>The intricate layers demonstrate sophisticated agricultural systems.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn-360-small" data-bs-toggle="modal" data-bs-target="#gallery4Modal">
+                                        <i class="fas fa-vr-cardboard"></i> 360° View
+                                    </button>
+                                    <div class="share-buttons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/tinglayan" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://wa.me/?text=Terraced%20layers%20of%20Tinglayan%20Rice%20Terraces%20https://example.com/tinglayan" target="_blank" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Regular Image 2 -->
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1569319438169-01a462a5b6c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Village View">
+                            <div class="gallery-caption">
+                                <h3><i class="fas fa-home"></i> Mountain Village</h3>
+                                <p>Traditional houses nestled among the terraces.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn-360-small" data-bs-toggle="modal" data-bs-target="#gallery5Modal">
+                                        <i class="fas fa-vr-cardboard"></i> 360° View
+                                    </button>
+                                    <div class="share-buttons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/tinglayan" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/intent/tweet?url=https://example.com/tinglayan&text=Mountain%20village%20near%20Tinglayan%20Rice%20Terraces" target="_blank" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <!-- Modern Explore Sidebar -->
+                    <div class="explore-sidebar">
+                        <h3 class="explore-sidebar-title">You Might Want to Explore Too</h3>
+                        <div class="explore-sidebar-cards">
+                            <!-- Destination 1 -->
+                            <div class="explore-sidebar-card">
+                                <span class="explore-sidebar-card-badge">Popular</span>
+                                <a href="/destination/banaue">
+                                    <div class="explore-sidebar-card-img">
+                                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Banaue Rice Terraces">
+                                    </div>
+                                    <div class="explore-sidebar-card-body">
+                                        <h4 class="explore-sidebar-card-title">Banaue Rice Terraces</h4>
+                                        <p class="explore-sidebar-card-text">The famous "Eighth Wonder of the World" with 2000-year-old terraces carved into the mountains.</p>
+                                        <span class="explore-sidebar-card-cta">
+                                            Discover more <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Destination 2 -->
+                            <div class="explore-sidebar-card">
+                                <a href="/destination/sagada">
+                                    <div class="explore-sidebar-card-img">
+                                        <img src="https://images.unsplash.com/photo-1569319438169-01a462a5b6c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sagada">
+                                    </div>
+                                    <div class="explore-sidebar-card-body">
+                                        <h4 class="explore-sidebar-card-title">Sagada</h4>
+                                        <p class="explore-sidebar-card-text">Explore hanging coffins, stunning caves, and cool mountain climate.</p>
+                                        <span class="explore-sidebar-card-cta">
+                                            Discover more <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Destination 3 -->
+                            <div class="explore-sidebar-card">
+                                <span class="explore-sidebar-card-badge">Adventure</span>
+                                <a href="/destination/batad">
+                                    <div class="explore-sidebar-card-img">
+                                        <img src="https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Batad Rice Terraces">
+                                    </div>
+                                    <div class="explore-sidebar-card-body">
+                                        <h4 class="explore-sidebar-card-title">Batad Rice Terraces</h4>
+                                        <p class="explore-sidebar-card-text">Amphitheater-like terraces accessible only by foot through scenic hikes.</p>
+                                        <span class="explore-sidebar-card-cta">
+                                            Discover more <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Destination 4 -->
+                            <div class="explore-sidebar-card">
+                                <a href="/destination/mayoyao">
+                                    <div class="explore-sidebar-card-img">
+                                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Mayoyao Rice Terraces">
+                                    </div>
+                                    <div class="explore-sidebar-card-body">
+                                        <h4 class="explore-sidebar-card-title">Mayoyao Rice Terraces</h4>
+                                        <p class="explore-sidebar-card-text">Authentic Ifugao villages with less tourist crowds and stunning views.</p>
+                                        <span class="explore-sidebar-card-cta">
+                                            Discover more <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Destination 5 -->
+                            <div class="explore-sidebar-card">
+                                <span class="explore-sidebar-card-badge">Cultural</span>
+                                <a href="/destination/kalinga-village">
+                                    <div class="explore-sidebar-card-img">
+                                        <img src="https://images.unsplash.com/photo-1569319438169-01a462a5b6c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Kalinga Village">
+                                    </div>
+                                    <div class="explore-sidebar-card-body">
+                                        <h4 class="explore-sidebar-card-title">Kalinga Village</h4>
+                                        <p class="explore-sidebar-card-text">Experience the rich culture of the Kalinga people and their traditions.</p>
+                                        <span class="explore-sidebar-card-cta">
+                                            Discover more <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="text-center">
+                <a href="/all-destinations" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Destinations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section map-section" id="location-map">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-map-marked-alt"></i> Location</h2>
+                <p class="text-muted">Find your way to this magnificent destination</p>
+            </div>
+            
+            <div class="map-info">
+                <p>The Tinglayan Rice Terraces are located in the mountainous region of Kalinga, northern Philippines. The terraces are accessible via a scenic journey through the Cordillera mountains, offering breathtaking views along the way.</p>
+            </div>
+            
+            <div class="map-container">
+                <div id="locationMap"></div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="https://www.google.com/maps/dir//17.2765,121.1625" target="_blank" class="btn-primary-custom mt-4">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main 360 Modal -->
+    <div class="modal fade modal-360" id="main360Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tinglayan Rice Terraces</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="panorama-container">
+                        <div id="panorama-main"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery 360 Modals -->
+    <div class="modal fade modal-360" id="gallery1Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Panoramic View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="panorama-container">
+                        <div id="panorama-gallery1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-360" id="gallery2Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sunrise Over Terraces</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="panorama-container">
+                        <div id="panorama-gallery2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-360" id="gallery3Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Farmers at Work</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="panorama-container">
+                        <div id="panorama-gallery3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-360" id="gallery4Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terraced Layers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="panorama-container">
+                        <div id="panorama-gallery4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-360" id="gallery5Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mountain Village</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="panorama-container">
+                        <div id="panorama-gallery5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <%- include('includes/footer') %>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Pannellum JS -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize modals
+            const mainModal = new bootstrap.Modal(document.getElementById('main360Modal'));
+            const galleryModals = [
+                new bootstrap.Modal(document.getElementById('gallery1Modal')),
+                new bootstrap.Modal(document.getElementById('gallery2Modal')),
+                new bootstrap.Modal(document.getElementById('gallery3Modal')),
+                new bootstrap.Modal(document.getElementById('gallery4Modal')),
+                new bootstrap.Modal(document.getElementById('gallery5Modal'))
+            ];
+            
+            // Panorama images
+            const panoramaImages = [
+                "https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80",
+                "https://images.unsplash.com/photo-1569319438169-01a462a5b6c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                "https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80",
+                "https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+                "https://images.unsplash.com/photo-1569319438169-01a462a5b6c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            ];
+            
+            // Initialize main panorama
+            document.getElementById('main360Modal').addEventListener('shown.bs.modal', function() {
+                pannellum.viewer('panorama-main', {
+                    "type": "equirectangular",
+                    "panorama": panoramaImages[0],
+                    "autoLoad": true,
+                    "showControls": true,
+                    "hotSpotDebug": false
+                });
+            });
+            
+            // Initialize gallery panoramas
+            galleryModals.forEach((modal, index) => {
+                document.getElementById(modal._element.id).addEventListener('shown.bs.modal', function() {
+                    pannellum.viewer('panorama-' + modal._element.id.replace('Modal', ''), {
+                        "type": "equirectangular",
+                        "panorama": panoramaImages[index],
+                        "autoLoad": true,
+                        "showControls": true,
+                        "hotSpotDebug": false
+                    });
+                });
+            });
+            
+            // Clean up viewers when modals are closed
+            document.querySelectorAll('.modal-360').forEach(modal => {
+                modal.addEventListener('hidden.bs.modal', function() {
+                    const panoramaId = this.querySelector('[id^="panorama-"]').id;
+                    document.getElementById(panoramaId).innerHTML = '';
+                });
+            });
+            
+            // Initialize map
+            const map = L.map('locationMap').setView([17.2765, 121.1625], 13);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Custom icon
+            const terraceIcon = L.icon({
+                iconUrl: 'https://cdn-icons-png.flaticon.com/512/484/484167.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
+            
+            // Add marker
+            L.marker([17.2765, 121.1625], {icon: terraceIcon}).addTo(map)
+                .bindPopup(`
+                    <div style="text-align: center;">
+                        <h4 style="margin: 5px 0; color: var(--primary-color);">Tinglayan Rice Terraces</h4>
+                        <p style="margin: 5px 0;">Kalinga, Philippines</p>
+                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" style="width: 100%; border-radius: 4px; margin-top: 5px;">
+                    </div>
+                `)
+                .openPopup();
+        });
+    </script>
+</body>
+</html>
