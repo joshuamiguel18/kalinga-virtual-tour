@@ -13,7 +13,7 @@
     <div id="all-destinations-page">
         <section class="destinations-hero">
             <div class="hero-content">
-                <h1>Discover Kalinga</h1>
+                <h1>Discover Tabuk</h1>
                 <p>Explore the breathtaking destinations of our mountain province through immersive virtual tours</p>
             </div>
         </section>
@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
-                        <h1 class="section-title">Explore Kalinga</h1>
+                        <h1 class="section-title">Explore Tabuk</h1>
                         <p class="text-muted">Discover the breathtaking destinations of Kalinga</p>
                     </div>
                 </div>
@@ -69,50 +69,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Destination data
-            const destinations = [
-                {
-                    id: 1,
-                    title: "Buscalan Village",
-                    image: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80",
-                    description: "Home of the legendary mambabatok (traditional tattoo artist) Whang-Od, this village offers a glimpse into indigenous Kalinga culture.",
-                    features: ["Cultural", "Historical", "Tattoo Art"]
-                },
-                {
-                    id: 2,
-                    title: "Tinglayan Rice Terraces",
-                    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                    description: "These stunning terraces carved into the mountains showcase the agricultural ingenuity of the Kalinga people.",
-                    features: ["Scenic", "UNESCO", "Photography"]
-                },
-                {
-                    id: 3,
-                    title: "Chico River",
-                    image: "https://images.unsplash.com/photo-1437482078695-73e1ca6f58c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                    description: "Known for its rapids, the Chico River offers thrilling whitewater rafting experiences amidst spectacular scenery.",
-                    features: ["Adventure", "Water Sports", "Extreme"]
-                },
-                {
-                    id: 4,
-                    title: "Mount Patokan",
-                    image: "https://images.unsplash.com/photo-1470114716159-e389f8712fda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                    description: "A challenging trek with rewarding panoramic views of Kalinga's mountainous landscape.",
-                    features: ["Hiking", "Nature", "Views"]
-                },
-                {
-                    id: 5,
-                    title: "Balbalasang-Balbalan National Park",
-                    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                    description: "A biodiversity hotspot with pristine forests, waterfalls, and diverse wildlife.",
-                    features: ["Wildlife", "Nature", "Hiking"]
-                },
-                {
-                    id: 6,
-                    title: "Lubo & Mangali Rice Terraces",
-                    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                    description: "Lesser-known but equally impressive terraces that showcase traditional farming methods.",
-                    features: ["Cultural", "Scenic", "Photography"]
-                }
-            ];
+            const destinations = <%- JSON.stringify(tours) %>;
 
             // Pagination variables
             const itemsPerPage = 6;
@@ -151,8 +108,8 @@
                 } else {
                     filteredDestinations = destinations.filter(dest => {
                         return (
-                            dest.title.toLowerCase().includes(searchTerm) ||
-                            dest.description.toLowerCase().includes(searchTerm) ||
+                            dest.name.toLowerCase().includes(searchTerm) ||
+                            dest.fullDescription.toLowerCase().includes(searchTerm) ||
                             dest.features.some(feat => feat.toLowerCase().includes(searchTerm))
                         );
                     });
@@ -228,17 +185,17 @@
                     card.className = 'col-lg-4 col-md-6';
                     card.innerHTML = `
                         <div class="destination-card">
-                            <img src="${dest.image}" class="destination-card-img" alt="${dest.title}">
+                            <img src="${dest.image}" class="destination-card-img" alt="${dest.name}">
                             
                             <div class="destination-card-overlay">
                                 <div class="destination-card-content">
-                                    <h3 class="destination-card-title">${dest.title}</h3>
+                                    <h3 class="destination-card-title">${dest.name}</h3>
                                 </div>
                             </div>
                             
                             <div class="destination-card-hover">
-                                <h3 class="destination-card-title">${dest.title}</h3>
-                                <p class="mb-3">${dest.description}</p>
+                                <h3 class="destination-card-title">${dest.name}</h3>
+                                <p class="mb-3">${dest.fullDescription}</p>
                                 <div class="destination-features">
                                     ${features}
                                 </div>

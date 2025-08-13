@@ -1,49 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
     <%- include('includes/head') %>
-
-    </head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <%- include('includes/header') %>
 
     <!-- Hero Carousel (unchanged from previous) -->
-    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    <div
+      id="heroCarousel"
+      class="carousel slide hero-carousel"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div
+          class="carousel-item active"
+          style="
+            background-image: url('../images/480857576_1705457447068459_4444692375793244962_n.jpg');
+          "
+        >
+          <div class="carousel-caption">
+            <h5>Discover</h5>
+            <p>
+              Explore the breathtaking Cordillera landscapes through our 360°
+              virtual tours
+            </p>
+            <a href="#" class="btn btn-explore mt-3">Start Exploring</a>
+          </div>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');">
-                <div class="carousel-caption">
-                    <h5>Discover Kalinga's Majestic Mountains</h5>
-                    <p>Explore the breathtaking Cordillera landscapes through our 360° virtual tours</p>
-                    <a href="#" class="btn btn-explore mt-3">Start Exploring</a>
-                </div>
-            </div>
-            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-                <div class="carousel-caption">
-                    <h5>Immerse in Rich Indigenous Culture</h5>
-                    <p>Experience the traditions of the Kalinga people through interactive virtual visits</p>
-                    <a href="#" class="btn btn-explore mt-3">Learn More</a>
-                </div>
-            </div>
-            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-                <div class="carousel-caption">
-                    <h5>Adventure Awaits in Every Corner</h5>
-                    <p>From rice terraces to waterfalls, discover Kalinga's natural wonders</p>
-                    <a href="#" class="btn btn-explore mt-3">View Tours</a>
-                </div>
-            </div>
+        <div
+          class="carousel-item"
+          style="
+            background-image: url('../images/chico-river/GUNUGUN.png');
+          "
+        >
+          <div class="carousel-caption">
+            <h5>Be Captivated</h5>
+            <p>
+              Experience the traditions of the Kalinga people through
+              interactive virtual visits
+            </p>
+            <a href="#" class="btn btn-explore mt-3">Learn More</a>
+          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+        <div
+          class="carousel-item"
+          style="
+            background-image: url('../images/chico-river/chico\ river\ dam.JPG');
+          "
+        >
+          <div class="carousel-caption">
+            <h5>Explore and Experience</h5>
+            <p>
+              From rice terraces to waterfalls, discover Kalinga's natural
+              wonders
+            </p>
+            <a href="#" class="btn btn-explore mt-3">View Tours</a>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
 
     <!-- Mountain Divider
@@ -57,288 +107,315 @@
 
     <!-- Featured Experiences Section -->
     <section class="experience-section" id="experiences">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Featured Experiences</h2>
-                    <p class="mb-5">Unique adventures that showcase the best of Kalinga</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="experience-card">
-                        <span class="experience-badge">Popular</span>
-                        <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Tattoo Experience">
-                        <div class="experience-content">
-                            <h4>Traditional Tattoo Experience</h4>
-                            <p>Witness the ancient art of Kalinga tattooing by Whang-Od's apprentices</p>
-                            <a href="#" class="btn btn-explore btn-sm">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="experience-card">
-                        <span class="experience-badge">Adventure</span>
-                        <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1933&q=80" alt="Rafting Experience">
-                        <div class="experience-content">
-                            <h4>Chico River Rafting</h4>
-                            <p>Navigate the thrilling rapids of Kalinga's legendary river</p>
-                            <a href="#" class="btn btn-explore btn-sm">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="experience-card">
-                        <span class="experience-badge">Cultural</span>
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Rice Terraces">
-                        <div class="experience-content">
-                            <h4>Terraces Farming Workshop</h4>
-                            <p>Learn traditional rice farming methods from local experts</p>
-                            <a href="#" class="btn btn-explore btn-sm">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="section-title">Discover</h2>
+            <p class="mb-5">
+              Unique adventures that showcase the best of Kalinga
+            </p>
+          </div>
         </div>
+
+        <div class="row">
+          <% destinations.forEach((dest) => { %>
+          <div class="col-md-4">
+            <div class="experience-card">
+                 <span class="experience-badge">Popular</span>
+                 <img
+                src="<%= dest.image %>"
+                alt="<%= dest.image %>"
+              />
+              <div class="experience-content">
+                <h4><%= dest.name %></h4>
+                <p><%= dest.description %></p>
+                 <a href="#" class="btn btn-explore btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+
+      </div>
     </section>
 
     <!-- Cultural Highlights Section -->
     <section class="cultural-section py-5" id="culture">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title text-white">Cultural Highlights</h2>
-                    <p class="text-light">Discover the rich traditions of the Kalinga people</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="cultural-item">
-                        <div class="cultural-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h4>Bodong</h4>
-                        <p>Peace pact system that has maintained harmony among tribes for centuries</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cultural-item">
-                        <div class="cultural-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h4>Cuisine</h4>
-                        <p>Unique flavors of pinikpikan, etag, and other indigenous delicacies</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cultural-item">
-                        <div class="cultural-icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h4>Music & Dance</h4>
-                        <p>Traditional gong music and warrior dances that tell tribal stories</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cultural-item">
-                        <div class="cultural-icon">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <h4>Weaving</h4>
-                        <p>Intricate textile patterns that represent tribal identity and status</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title text-white">Be captivated</h2>
+            <p class="text-light">
+              Discover the rich traditions of the Kalinga people
+            </p>
+          </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-2">
+            <div class="cultural-item">
+              <div class="cultural-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <h4>Artisan</h4>
+              <!-- <p>
+                Peace pact system that has maintained harmony among tribes for
+                centuries
+              </p> -->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="cultural-item">
+              <div class="cultural-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <h4>Tapestry</h4>
+              <!-- <p>
+                Unique flavors of pinikpikan, etag, and other indigenous
+                delicacies
+              </p> -->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="cultural-item">
+              <div class="cultural-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <h4>Upcycled Products</h4>
+              <!-- <p>
+                Traditional gong music and warrior dances that tell tribal
+                stories
+              </p> -->
+            </div>
+          </div>
+
+
+          <div class="col-md-2">
+            <div class="cultural-item">
+              <div class="cultural-icon">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <h4>Visual Arts</h4>
+              <!-- <p>
+                Intricate textile patterns that represent tribal identity and
+                status
+              </p> -->
+            </div>
+          </div>
+  
+          <div class="col-md-2">
+            <div class="cultural-item">
+              <div class="cultural-icon">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <h4>Woodworks</h4>
+              <!-- <p>
+                Intricate textile patterns that represent tribal identity and
+                status
+              </p> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <!-- Enhanced Explore Our Gems Section -->
     <section class="explore-section" id="explore">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Explore Our Gems</h2>
-                    <p class="mb-5">Discover the breathtaking destinations of Kalinga through our immersive 360° virtual tours</p>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Card 1 -->
-                <div class="col-md-4">
-                    <div class="card card-place">
-                        <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" class="card-img" alt="Buscalan Village">
-                        <div class="card-overlay">
-                            <div class="card-content">
-                                <h3>Buscalan Village</h3>
-                                <p>Home of Whang-Od, the last traditional tattoo artist</p>
-                            </div>
-                            <div class="card-description">
-                                <p>This remote village is famous for its traditional Kalinga tattoos and authentic indigenous culture.</p>
-                                <a href="/full-details" class="btn btn-explore btn-sm">Explore</a>
-                            </div>
-                        </div>
-                        <a href="/full-details" class="view-more-btn">
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="col-md-4">
-                    <div class="card card-place">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img" alt="Tinglayan Rice Terraces">
-                        <div class="card-overlay">
-                            <div class="card-content">
-                                <h3>Tinglayan Rice Terraces</h3>
-                                <p>Stunning agricultural marvels</p>
-                            </div>
-                            <div class="card-description">
-                                <p>These ancient terraces showcase the engineering skills of the Kalinga people, carved into mountainsides.</p>
-                                <a href="/full-details" class="btn btn-explore btn-sm">Explore</a>
-                            </div>
-                        </div>
-                        <a href="/full-details" class="view-more-btn">
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="col-md-4">
-                    <div class="card card-place">
-                        <img src="https://images.unsplash.com/photo-1437482078695-73e1ca6f58c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img" alt="Chico River">
-                        <div class="card-overlay">
-                            <div class="card-content">
-                                <h3>Chico River</h3>
-                                <p>Thrilling whitewater adventures</p>
-                            </div>
-                            <div class="card-description">
-                                <p>Known for its rapids, the Chico River offers exciting rafting experiences with spectacular scenery.</p>
-                                <a href="/full-details" class="btn btn-explore btn-sm">Explore</a>
-                            </div>
-                        </div>
-                        <a href="/full-details" class="view-more-btn">
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <a href="/all-destinations" class="btn btn-explore btn-lg">View All Destinations</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="section-title">Explore and Experience</h2>
+            <p class="mb-5">
+              Discover the breathtaking destinations of Kalinga through our
+              immersive 360° virtual tours
+            </p>
+          </div>
         </div>
+        <div class="row">
+
+<% tours.forEach((tour) => { %>
+          <div class="col-md-4">
+            <div class="card card-place">
+              <img
+                src="<%= tour.image %>"
+                class="card-img"
+                alt="<%= tour.name %>"
+              />
+              <div class="card-overlay">
+                <div class="card-content">
+                  <h3><%= tour.name %></h3>
+                  <p><%= tour.headerDescription %></p>
+                </div>
+                <div class="card-description">
+                  <p>
+                   <%= tour.fullDescription %>
+                  </p>
+                  <a href="/full-details" class="btn btn-explore btn-sm"
+                    >Explore</a
+                  >
+                </div>
+              </div>
+              <a href="/full-details" class="view-more-btn">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+  <% }); %>
+          <!-- Card 1 -->
+
+
+        
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <a href="/all-destinations" class="btn btn-explore btn-lg"
+              >View All Destinations</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonial-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Traveler Stories</h2>
-                    <p class="mb-5">What our visitors say about their Kalinga experience</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">The 360° virtual tour gave me such an authentic feel of Kalinga's culture. It was almost like being there in person. Can't wait to visit for real!</p>
-                        <div class="testimonial-author">Sarah M.</div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Meeting Whang-Od through the virtual experience was incredible. The cultural immersion this platform provides is unmatched by any travel site I've used.</p>
-                        <div class="testimonial-author">James L.</div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">The rice terraces virtual tour was so detailed I could almost feel the mountain breeze. This website convinced me to book my trip to Kalinga next month!</p>
-                        <div class="testimonial-author">Maria G.</div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="section-title">Traveler Stories</h2>
+            <p class="mb-5">
+              What our visitors say about their Kalinga experience
+            </p>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                The 360° virtual tour gave me such an authentic feel of
+                Kalinga's culture. It was almost like being there in person.
+                Can't wait to visit for real!
+              </p>
+              <div class="testimonial-author">Sarah M.</div>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                Meeting Whang-Od through the virtual experience was incredible.
+                The cultural immersion this platform provides is unmatched by
+                any travel site I've used.
+              </p>
+              <div class="testimonial-author">James L.</div>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                The rice terraces virtual tour was so detailed I could almost
+                feel the mountain breeze. This website convinced me to book my
+                trip to Kalinga next month!
+              </p>
+              <div class="testimonial-author">Maria G.</div>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="mb-4">Stay Updated on Kalinga's Hidden Gems</h2>
-                    <p class="mb-5">Subscribe to our newsletter for new virtual tours, travel tips, and cultural insights</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your email address">
-                            <button class="btn btn-outline-light" type="submit">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="mb-4">Stay Updated on Kalinga's Hidden Gems</h2>
+            <p class="mb-5">
+              Subscribe to our newsletter for new virtual tours, travel tips,
+              and cultural insights
+            </p>
+            <form class="newsletter-form">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your email address"
+                />
+                <button class="btn btn-outline-light" type="submit">
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <%- include('includes/footer') %>
-    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Initialize carousel with autoplay
-        document.addEventListener('DOMContentLoaded', function() {
-            var myCarousel = document.querySelector('#heroCarousel');
-            var carousel = new bootstrap.Carousel(myCarousel, {
-                interval: 5000,
-                wrap: true
-            });
-            
-            // Simple search functionality for demo purposes
-            document.querySelector('.search-bar button').addEventListener('click', function() {
-                var searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
-                var cards = document.querySelectorAll('.destination-card');
-                
-                cards.forEach(function(card) {
-                    var title = card.querySelector('.destination-card-title').textContent.toLowerCase();
-                    var text = card.querySelector('.destination-card-text').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm) || text.includes(searchTerm)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-            
-            // Show all destinations page if URL has hash
-            if (window.location.hash === '#all-destinations') {
-                document.querySelector('#all-destinations-page').style.display = 'block';
-                document.querySelector('main').style.display = 'none';
-            }
+      // Initialize carousel with autoplay
+      document.addEventListener("DOMContentLoaded", function () {
+        var myCarousel = document.querySelector("#heroCarousel");
+        var carousel = new bootstrap.Carousel(myCarousel, {
+          interval: 5000,
+          wrap: true,
         });
+
+        // Simple search functionality for demo purposes
+        document
+          .querySelector(".search-bar button")
+          .addEventListener("click", function () {
+            var searchTerm = document
+              .querySelector(".search-bar input")
+              .value.toLowerCase();
+            var cards = document.querySelectorAll(".destination-card");
+
+            cards.forEach(function (card) {
+              var title = card
+                .querySelector(".destination-card-title")
+                .textContent.toLowerCase();
+              var text = card
+                .querySelector(".destination-card-text")
+                .textContent.toLowerCase();
+
+              if (title.includes(searchTerm) || text.includes(searchTerm)) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+
+        // Show all destinations page if URL has hash
+        if (window.location.hash === "#all-destinations") {
+          document.querySelector("#all-destinations-page").style.display =
+            "block";
+          document.querySelector("main").style.display = "none";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
